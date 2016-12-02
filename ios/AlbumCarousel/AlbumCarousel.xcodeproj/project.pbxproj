@@ -13,6 +13,7 @@
 		15DF02941DF1526600A3E86A /* AlbumCarousel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 15DF02921DF1526600A3E86A /* AlbumCarousel.xcdatamodeld */; };
 		15DF02961DF1526600A3E86A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15DF02951DF1526600A3E86A /* Assets.xcassets */; };
 		15DF02991DF1526600A3E86A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15DF02971DF1526600A3E86A /* LaunchScreen.storyboard */; };
+		15DF02A11DF1614200A3E86A /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF02A01DF1614200A3E86A /* Album.swift */; };
 		961632B0F1E81A96A1FB6365 /* Pods_AlbumCarousel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E07D55FE75A4A0686842F8D7 /* Pods_AlbumCarousel.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		15DF02951DF1526600A3E86A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15DF02981DF1526600A3E86A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15DF029A1DF1526600A3E86A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15DF02A01DF1614200A3E86A /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		6F3A0C0EEBA7A3365FE719B5 /* Pods-AlbumCarousel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlbumCarousel.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlbumCarousel/Pods-AlbumCarousel.release.xcconfig"; sourceTree = "<group>"; };
 		E07D55FE75A4A0686842F8D7 /* Pods_AlbumCarousel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlbumCarousel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,6 +81,7 @@
 				15DF02971DF1526600A3E86A /* LaunchScreen.storyboard */,
 				15DF029A1DF1526600A3E86A /* Info.plist */,
 				15DF02921DF1526600A3E86A /* AlbumCarousel.xcdatamodeld */,
+				15DF02A01DF1614200A3E86A /* Album.swift */,
 			);
 			path = AlbumCarousel;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				15DF028E1DF1526600A3E86A /* ViewController.swift in Sources */,
 				15DF02941DF1526600A3E86A /* AlbumCarousel.xcdatamodeld in Sources */,
 				15DF028C1DF1526600A3E86A /* AppDelegate.swift in Sources */,
+				15DF02A11DF1614200A3E86A /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +387,7 @@
 				15DF029F1DF1526600A3E86A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
