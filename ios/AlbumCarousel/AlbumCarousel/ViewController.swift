@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Alamofire
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
@@ -25,8 +26,43 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
+        
+        makeRequest("David Bowie")
     }
 
+    
+    func makeRequest(_ searchTerms: String) {
+        self.albums.removeAll()
+        artistLabel.text = "Artist: " + searchTerms
+        let urlString = "https://itunes.apple.com/search?entity=album&attribute=allArtistTerm&term=" + searchTerms.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        
+        Alamofire.request(urlString).responseJSON { response in
+            
+            if let JSON = response.result.value {
+                do {
+                    
+                    let stringData = JSON as! NSDictionary
+                    let results = stringData.object(forKey: "results")! as! NSArray
+                    for object in results {
+                        let dictionary = object as! NSDictionary
+                        
+                        let album = Album()
+                        album.pictureUrl = dictionary.object(forKey: "artworkUrl100") as! String
+                        album.artistName = dictionary.object(forKey: "artistName") as! String
+                        album.collectionName = dictionary.object(forKey: "collectionName") as! String
+                        album.primaryGenreName = dictionary.object(forKey: "primaryGenreName") as! String
+                        
+                        self.albums.append(album)
+                    }
+                    
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+        
+    }
+
+    
     //UICollectionViewDataSource methods - start
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -56,7 +92,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     //UISearchBarDelegate methods - start
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        artistLabel.text = "Artist: " + searchBar.text!
+        
         searchBar.endEditing(true)
     }
     
