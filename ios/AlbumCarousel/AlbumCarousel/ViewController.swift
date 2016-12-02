@@ -92,7 +92,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     //UISearchBarDelegate methods - start
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        makeRequest(searchBar.text!)
         searchBar.endEditing(true)
     }
     
