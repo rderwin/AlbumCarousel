@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Kingfisher
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var artistLabel: UILabel!
 
@@ -16,16 +17,59 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var albums : [Album] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        searchBar.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //UICollectionViewDataSource methods - start
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        return albums.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let imageView = cell.viewWithTag(1) as! UIImageView
+        let stringUrl = albums[indexPath.item]
+        let url = URL(string: stringUrl.pictureUrl)
+        
+        imageView.kf.setImage(with: url)
+        return cell
     }
 
-
+    //UICollectionViewDataSource methods - end
+    
+    
+    //UISearchBarDelegate methods - start
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        artistLabel.text = "Artist: " + searchBar.text!
+        searchBar.endEditing(true)
+    }
+    
+    //UISearchBarDelegate methods - end
+    
+    
+    //UICollectionViewDelegate methods - start
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+    }
+    
+    //UICollectionViewDelegate methods - end
 }
 
