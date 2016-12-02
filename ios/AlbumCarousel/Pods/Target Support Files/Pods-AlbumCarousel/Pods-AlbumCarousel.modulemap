@@ -1,0 +1,6 @@
+framework module Pods_AlbumCarousel {
+  umbrella header "Pods-AlbumCarousel-umbrella.h"
+
+  export *
+  module * { export * }
+}
