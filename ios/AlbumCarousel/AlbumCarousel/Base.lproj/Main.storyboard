@@ -78,6 +78,11 @@
                             <constraint firstItem="fOI-uv-p4Y" firstAttribute="top" secondItem="bgc-CI-D7Q" secondAttribute="bottom" constant="20" id="u9Z-Ow-hqt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="artistLabel" destination="bgc-CI-D7Q" id="CSG-9l-VQv"/>
+                        <outlet property="collectionView" destination="fOI-uv-p4Y" id="v0d-Dv-yKZ"/>
+                        <outlet property="searchBar" destination="NGL-PU-fZE" id="935-Eo-C4g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
