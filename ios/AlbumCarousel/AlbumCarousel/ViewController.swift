@@ -6,6 +6,7 @@
 //  Copyright © 2016 Dave Erwin. All rights reserved.
 //
 
+import CoreData
 import UIKit
 import Kingfisher
 import Alamofire
@@ -48,24 +49,43 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         Alamofire.request(urlString).responseJSON { response in
             if let JSON = response.result.value {
                 do {
+
+                    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
                     
+                    let searchQuery = SearchQuery(context: context)
+                    searchQuery.query = queryString
+
                     let data = JSON as! NSDictionary
                     let results = data.object(forKey: "results")! as! NSArray
                     for object in results {
                         let dictionary = object as! NSDictionary
                         
-                        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-                        let album = Album(context: context)
+                        let collectionId = dictionary.object(forKey: "collectionId") as! Int64
                         
-                        album.pictureUrl = dictionary.object(forKey: "artworkUrl100") as? String
-                        album.artistName = dictionary.object(forKey: "artistName") as? String
-                        album.collectionName = dictionary.object(forKey: "collectionName") as? String
-                        album.primaryGenreName = dictionary.object(forKey: "primaryGenreName") as? String
-                        album.searchQuery = queryString
+                        let duplicateCheckFetch =  NSFetchRequest<Album>(entityName: "Album")
+                        duplicateCheckFetch.predicate = NSPredicate(format: "collectionId == %d", collectionId)
                         
-                        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                        var album: Album? = nil
+                        do {
+                            let albumInCoreData = try context.fetch(duplicateCheckFetch)
+                            if (albumInCoreData.count == 0) {
+                                album = Album(context: context)
+                                
+                                album!.pictureUrl = dictionary.object(forKey: "artworkUrl100") as? String
+                                album!.artistName = dictionary.object(forKey: "artistName") as? String
+                                album!.collectionName = dictionary.object(forKey: "collectionName") as? String
+                                album!.primaryGenreName = dictionary.object(forKey: "primaryGenreName") as? String
+                                album!.collectionId = collectionId
+                            } else {
+                                album = albumInCoreData[0]
+                            }
+                            searchQuery.addToAlbums(album!)
+                            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                            self.albums.append(album!)
+                        } catch {
+                            NSLog("Error: Album fetch failed")
+                        }
                         
-                        self.albums.append(album)
                     }
                     self.collectionView.reloadData()
                 }
@@ -122,22 +142,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func getAlbumsFromCoreData(_ queryString: String) {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        let searchFetch =  NSFetchRequest<SearchQuery>(entityName: "SearchQuery")
+        searchFetch.predicate = NSPredicate(format: "query == %@", queryString)
         
         do {
-            let allAlbums = try context.fetch(Album.fetchRequest()) as! [Album]
-            for album in allAlbums {
-                if (album.searchQuery! == queryString) {
-                    albums.append(album)
-                }
-            }
+           let searchQueries = try context.fetch(searchFetch)
+           if (searchQueries.count != 0) {
+              let searchQuery = searchQueries[0]
+              self.albums = Array(searchQuery.albums!) as! [Album]
+           }
         } catch {
-            print("Error: Album fetch failed")
+            NSLog("Error: Search query fetch failed")
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextViewController = segue.destination as! MoreDetailController
-        nextViewController.album = sender as! Album
+        nextViewController.album = sender as? Album
     }
     
 }
