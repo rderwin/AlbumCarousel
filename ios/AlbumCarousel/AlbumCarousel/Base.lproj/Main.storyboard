@@ -23,10 +23,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fOI-uv-p4Y">
-                                <rect key="frame" x="36" y="263.5" width="303" height="140"/>
+                                <rect key="frame" x="36" y="253.5" width="303" height="160"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="1oG-BA-KvJ"/>
+                                    <constraint firstAttribute="height" constant="160" id="1oG-BA-KvJ"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bgk-px-xib" customClass="CoverFlowLayout" customModule="AlbumCarousel" customModuleProvider="target">
                                     <size key="itemSize" width="110" height="110"/>
@@ -48,17 +48,18 @@
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgc-CI-D7Q">
-                                <rect key="frame" x="36" y="220" width="303" height="23.5"/>
+                                <rect key="frame" x="36" y="210" width="303" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" placeholder="Search for Artist..." translatesAutoresizingMaskIntoConstraints="NO" id="NGL-PU-fZE">
-                                <rect key="frame" x="36" y="423.5" width="303" height="44"/>
+                                <rect key="frame" x="36" y="433.5" width="303" height="44"/>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>

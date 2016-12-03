@@ -37,7 +37,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let urlString = "https://itunes.apple.com/search?entity=album&attribute=allArtistTerm&term=" + searchTerms.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         
         Alamofire.request(urlString).responseJSON { response in
-            
             if let JSON = response.result.value {
                 do {
                     
@@ -54,12 +53,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                         
                         self.albums.append(album)
                     }
-                    
                     self.collectionView.reloadData()
                 }
             }
         }
-        
     }
 
     
