@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OdP-I1-E7O">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Album Carousel-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AlbumCarousel" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,28 +22,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgc-CI-D7Q">
+                                <rect key="frame" x="36" y="190" width="303" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" placeholder="Search for Artist..." translatesAutoresizingMaskIntoConstraints="NO" id="NGL-PU-fZE">
+                                <rect key="frame" x="36" y="453.5" width="303" height="44"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fOI-uv-p4Y">
-                                <rect key="frame" x="36" y="253.5" width="303" height="160"/>
+                                <rect key="frame" x="36" y="233" width="303" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="1oG-BA-KvJ"/>
+                                    <constraint firstAttribute="height" constant="200" id="1oG-BA-KvJ"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bgk-px-xib" customClass="CoverFlowLayout" customModule="AlbumCarousel" customModuleProvider="target">
-                                    <size key="itemSize" width="110" height="110"/>
+                                    <size key="itemSize" width="108" height="108"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="BG7-Y3-6HF">
-                                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="108" height="108"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="108" height="108"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cii-d1-S3g">
-                                                    <rect key="frame" x="5" y="5" width="100" height="100"/>
+                                                    <rect key="frame" x="4" y="4" width="100" height="100"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -52,17 +63,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgc-CI-D7Q">
-                                <rect key="frame" x="36" y="210" width="303" height="23.5"/>
-                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <searchBar contentMode="redraw" placeholder="Search for Artist..." translatesAutoresizingMaskIntoConstraints="NO" id="NGL-PU-fZE">
-                                <rect key="frame" x="36" y="433.5" width="303" height="44"/>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -79,15 +79,95 @@
                             <constraint firstItem="fOI-uv-p4Y" firstAttribute="top" secondItem="bgc-CI-D7Q" secondAttribute="bottom" constant="20" id="u9Z-Ow-hqt"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Album Carousel" id="OGo-ok-BiV">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="QjJ-Il-SmI"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="artistLabel" destination="bgc-CI-D7Q" id="CSG-9l-VQv"/>
                         <outlet property="collectionView" destination="fOI-uv-p4Y" id="v0d-Dv-yKZ"/>
                         <outlet property="searchBar" destination="NGL-PU-fZE" id="935-Eo-C4g"/>
+                        <segue destination="ad0-OH-jHI" kind="show" identifier="MoreDetailSegue" id="TjD-BO-odJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+            <point key="canvasLocation" x="1076" y="137.18140929535232"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fYT-ES-z7d">
+            <objects>
+                <viewController id="ad0-OH-jHI" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fFm-x7-JHI"/>
+                        <viewControllerLayoutGuide type="bottom" id="KF9-AY-eyZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sat-rT-Wzy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="exg-F4-bZh">
+                                <rect key="frame" x="112.5" y="84" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="6YM-47-Qer"/>
+                                    <constraint firstAttribute="width" constant="150" id="lma-oi-u4w"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwZ-ng-3ul">
+                                <rect key="frame" x="16" y="254" width="343" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiU-8Q-FFK">
+                                <rect key="frame" x="16" y="297.5" width="343" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKd-eg-ew0">
+                                <rect key="frame" x="0.0" y="341" width="375" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bwZ-ng-3ul" firstAttribute="top" secondItem="exg-F4-bZh" secondAttribute="bottom" constant="20" id="6qe-GX-0ta"/>
+                            <constraint firstItem="bwZ-ng-3ul" firstAttribute="leading" secondItem="sat-rT-Wzy" secondAttribute="leadingMargin" id="9u5-5s-v50"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bwZ-ng-3ul" secondAttribute="trailing" id="DlR-3h-jdA"/>
+                            <constraint firstAttribute="trailing" secondItem="QKd-eg-ew0" secondAttribute="trailing" id="KTT-NU-M2L"/>
+                            <constraint firstItem="QKd-eg-ew0" firstAttribute="top" secondItem="FiU-8Q-FFK" secondAttribute="bottom" constant="20" id="Nas-0E-9qA"/>
+                            <constraint firstItem="FiU-8Q-FFK" firstAttribute="trailing" secondItem="sat-rT-Wzy" secondAttribute="trailingMargin" id="Ous-Td-G1i"/>
+                            <constraint firstItem="FiU-8Q-FFK" firstAttribute="top" secondItem="bwZ-ng-3ul" secondAttribute="bottom" constant="20" id="XzF-E7-dlo"/>
+                            <constraint firstItem="exg-F4-bZh" firstAttribute="centerX" secondItem="sat-rT-Wzy" secondAttribute="centerX" id="i4A-me-FNW"/>
+                            <constraint firstItem="FiU-8Q-FFK" firstAttribute="leading" secondItem="sat-rT-Wzy" secondAttribute="leadingMargin" id="td1-UE-jlr"/>
+                            <constraint firstItem="QKd-eg-ew0" firstAttribute="leading" secondItem="sat-rT-Wzy" secondAttribute="leading" id="v5x-ZL-eA3"/>
+                            <constraint firstItem="exg-F4-bZh" firstAttribute="top" secondItem="fFm-x7-JHI" secondAttribute="bottom" constant="20" id="vkK-gW-aEU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Psg-Fo-J4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1948" y="136.28185907046478"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iAs-9A-oXo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OdP-I1-E7O" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tHN-Je-zPu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Yye-zu-TuG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wcv-0V-3lG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="214" y="137"/>
         </scene>
     </scenes>
 </document>

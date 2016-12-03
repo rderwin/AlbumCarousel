@@ -100,7 +100,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        let album = albums[indexPath.row]
+        performSegue(withIdentifier: "MoreDetailSegue", sender: album)
     }
     
     //UICollectionViewDelegate methods - end
