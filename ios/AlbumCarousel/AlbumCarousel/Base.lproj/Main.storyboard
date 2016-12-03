@@ -22,22 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgc-CI-D7Q">
-                                <rect key="frame" x="36" y="190" width="303" height="23.5"/>
-                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <searchBar contentMode="redraw" placeholder="Search for Artist..." translatesAutoresizingMaskIntoConstraints="NO" id="NGL-PU-fZE">
-                                <rect key="frame" x="36" y="453.5" width="303" height="44"/>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fOI-uv-p4Y">
-                                <rect key="frame" x="36" y="233" width="303" height="200"/>
+                                <rect key="frame" x="36" y="223" width="303" height="220"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="1oG-BA-KvJ"/>
+                                    <constraint firstAttribute="height" constant="220" id="1oG-BA-KvJ"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bgk-px-xib" customClass="CoverFlowLayout" customModule="AlbumCarousel" customModuleProvider="target">
                                     <size key="itemSize" width="108" height="108"/>
@@ -48,7 +37,7 @@
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="BG7-Y3-6HF">
                                         <rect key="frame" x="0.0" y="0.0" width="108" height="108"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="108" height="108"/>
                                             <autoresizingMask key="autoresizingMask"/>
@@ -60,23 +49,35 @@
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgc-CI-D7Q">
+                                <rect key="frame" x="36" y="463" width="303" height="24"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" placeholder="Search for Artist..." translatesAutoresizingMaskIntoConstraints="NO" id="NGL-PU-fZE">
+                                <rect key="frame" x="36" y="199" width="303" height="44"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fOI-uv-p4Y" firstAttribute="top" secondItem="NGL-PU-fZE" secondAttribute="bottom" constant="-20" id="2R2-aI-v3s"/>
                             <constraint firstItem="NGL-PU-fZE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="2jb-KD-NE7"/>
                             <constraint firstItem="fOI-uv-p4Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="DL9-6o-VcG"/>
-                            <constraint firstItem="NGL-PU-fZE" firstAttribute="top" secondItem="fOI-uv-p4Y" secondAttribute="bottom" constant="20" id="MBJ-h7-Dvb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NGL-PU-fZE" secondAttribute="trailing" constant="20" id="OG0-ty-P9Y"/>
                             <constraint firstItem="NGL-PU-fZE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qlf-1g-mfL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fOI-uv-p4Y" secondAttribute="trailing" constant="20" id="Qxa-ks-omn"/>
                             <constraint firstItem="fOI-uv-p4Y" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UGF-FU-ehH"/>
                             <constraint firstItem="fOI-uv-p4Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X4j-Ef-6oK"/>
+                            <constraint firstItem="bgc-CI-D7Q" firstAttribute="top" secondItem="fOI-uv-p4Y" secondAttribute="bottom" constant="20" id="day-Ge-NbM"/>
                             <constraint firstItem="bgc-CI-D7Q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="hn7-Ae-t9Y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bgc-CI-D7Q" secondAttribute="trailing" constant="20" id="pUE-VI-YX3"/>
-                            <constraint firstItem="fOI-uv-p4Y" firstAttribute="top" secondItem="bgc-CI-D7Q" secondAttribute="bottom" constant="20" id="u9Z-Ow-hqt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Album Carousel" id="OGo-ok-BiV">
@@ -105,45 +106,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="exg-F4-bZh">
-                                <rect key="frame" x="112.5" y="84" width="150" height="150"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYO-y7-cE3">
+                                <rect key="frame" x="16" y="183.5" width="343" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwZ-ng-3ul">
+                                        <rect key="frame" x="0.0" y="195" width="343" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKd-eg-ew0">
+                                        <rect key="frame" x="0.0" y="282" width="343" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiU-8Q-FFK">
+                                        <rect key="frame" x="0.0" y="238.5" width="343" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="exg-F4-bZh">
+                                        <rect key="frame" x="83.5" y="0.0" width="175" height="175"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="175" id="6YM-47-Qer"/>
+                                            <constraint firstAttribute="width" constant="175" id="lma-oi-u4w"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="6YM-47-Qer"/>
-                                    <constraint firstAttribute="width" constant="150" id="lma-oi-u4w"/>
+                                    <constraint firstAttribute="trailing" secondItem="QKd-eg-ew0" secondAttribute="trailing" id="1Ks-ff-1Zt"/>
+                                    <constraint firstItem="QKd-eg-ew0" firstAttribute="leading" secondItem="GYO-y7-cE3" secondAttribute="leading" id="Qxu-Ft-mLI"/>
+                                    <constraint firstItem="exg-F4-bZh" firstAttribute="centerX" secondItem="GYO-y7-cE3" secondAttribute="centerX" id="SNx-LX-aav"/>
+                                    <constraint firstItem="bwZ-ng-3ul" firstAttribute="top" secondItem="exg-F4-bZh" secondAttribute="bottom" constant="20" id="YRo-7i-cOP"/>
+                                    <constraint firstAttribute="trailing" secondItem="bwZ-ng-3ul" secondAttribute="trailing" id="dnb-nz-mqf"/>
+                                    <constraint firstItem="FiU-8Q-FFK" firstAttribute="leading" secondItem="GYO-y7-cE3" secondAttribute="leading" id="eIw-JX-j17"/>
+                                    <constraint firstItem="exg-F4-bZh" firstAttribute="top" secondItem="GYO-y7-cE3" secondAttribute="top" id="inI-26-BQu"/>
+                                    <constraint firstItem="bwZ-ng-3ul" firstAttribute="leading" secondItem="GYO-y7-cE3" secondAttribute="leading" id="qG9-0g-ehx"/>
+                                    <constraint firstAttribute="height" constant="300" id="qj6-r7-R6u"/>
+                                    <constraint firstItem="FiU-8Q-FFK" firstAttribute="top" secondItem="bwZ-ng-3ul" secondAttribute="bottom" constant="20" id="wkH-jX-pdr"/>
+                                    <constraint firstItem="QKd-eg-ew0" firstAttribute="top" secondItem="FiU-8Q-FFK" secondAttribute="bottom" constant="20" id="y6y-oF-9VK"/>
+                                    <constraint firstAttribute="trailing" secondItem="FiU-8Q-FFK" secondAttribute="trailing" id="zpz-dO-jV2"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwZ-ng-3ul">
-                                <rect key="frame" x="16" y="254" width="343" height="23.5"/>
-                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiU-8Q-FFK">
-                                <rect key="frame" x="16" y="297.5" width="343" height="23.5"/>
-                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKd-eg-ew0">
-                                <rect key="frame" x="0.0" y="341" width="375" height="23.5"/>
-                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bwZ-ng-3ul" firstAttribute="top" secondItem="exg-F4-bZh" secondAttribute="bottom" constant="20" id="6qe-GX-0ta"/>
-                            <constraint firstItem="bwZ-ng-3ul" firstAttribute="leading" secondItem="sat-rT-Wzy" secondAttribute="leadingMargin" id="9u5-5s-v50"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bwZ-ng-3ul" secondAttribute="trailing" id="DlR-3h-jdA"/>
-                            <constraint firstAttribute="trailing" secondItem="QKd-eg-ew0" secondAttribute="trailing" id="KTT-NU-M2L"/>
-                            <constraint firstItem="QKd-eg-ew0" firstAttribute="top" secondItem="FiU-8Q-FFK" secondAttribute="bottom" constant="20" id="Nas-0E-9qA"/>
-                            <constraint firstItem="FiU-8Q-FFK" firstAttribute="trailing" secondItem="sat-rT-Wzy" secondAttribute="trailingMargin" id="Ous-Td-G1i"/>
-                            <constraint firstItem="FiU-8Q-FFK" firstAttribute="top" secondItem="bwZ-ng-3ul" secondAttribute="bottom" constant="20" id="XzF-E7-dlo"/>
-                            <constraint firstItem="exg-F4-bZh" firstAttribute="centerX" secondItem="sat-rT-Wzy" secondAttribute="centerX" id="i4A-me-FNW"/>
-                            <constraint firstItem="FiU-8Q-FFK" firstAttribute="leading" secondItem="sat-rT-Wzy" secondAttribute="leadingMargin" id="td1-UE-jlr"/>
-                            <constraint firstItem="QKd-eg-ew0" firstAttribute="leading" secondItem="sat-rT-Wzy" secondAttribute="leading" id="v5x-ZL-eA3"/>
-                            <constraint firstItem="exg-F4-bZh" firstAttribute="top" secondItem="fFm-x7-JHI" secondAttribute="bottom" constant="20" id="vkK-gW-aEU"/>
+                            <constraint firstItem="GYO-y7-cE3" firstAttribute="centerY" secondItem="sat-rT-Wzy" secondAttribute="centerY" id="HZr-eb-qpS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GYO-y7-cE3" secondAttribute="trailing" id="OuE-ny-HOm"/>
+                            <constraint firstItem="GYO-y7-cE3" firstAttribute="centerX" secondItem="sat-rT-Wzy" secondAttribute="centerX" id="U8F-Ez-CeU"/>
+                            <constraint firstItem="GYO-y7-cE3" firstAttribute="leading" secondItem="sat-rT-Wzy" secondAttribute="leadingMargin" id="gXU-Hv-kjk"/>
                         </constraints>
                     </view>
                     <connections>

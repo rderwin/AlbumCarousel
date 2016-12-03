@@ -2,12 +2,18 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Album" representedClassName="Album" syncable="YES" codeGenerationType="class">
         <attribute name="artistName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="collectionId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="collectionName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pictureUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="primaryGenreName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="searchQuery" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="queries" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SearchQuery" inverseName="albums" inverseEntity="SearchQuery" syncable="YES"/>
+    </entity>
+    <entity name="SearchQuery" representedClassName="SearchQuery" syncable="YES" codeGenerationType="class">
+        <attribute name="query" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="albums" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Album" inverseName="queries" inverseEntity="Album" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Album" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Album" positionX="-335" positionY="-54" width="128" height="133"/>
+        <element name="SearchQuery" positionX="171" positionY="-0" width="128" height="73"/>
     </elements>
 </model>
