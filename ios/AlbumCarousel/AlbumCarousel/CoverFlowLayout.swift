@@ -29,9 +29,6 @@ class CoverFlowLayout : UICollectionViewFlowLayout {
         let halfViewSize = self.collectionView!.frame.size.width/2.0
         
         for layoutAttributes in attributes {
-            
-            print(rect)
-            print(layoutAttributes.frame)
             if (rect.intersects(layoutAttributes.frame)) {
                 let distance = visibleRect.midX - layoutAttributes.center.x;
                 let normalizedDistance = distance / halfViewSize;
