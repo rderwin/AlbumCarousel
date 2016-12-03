@@ -93,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="1076" y="137.18140929535232"/>
         </scene>
-        <!--View Controller-->
+        <!--More Detail Controller-->
         <scene sceneID="fYT-ES-z7d">
             <objects>
-                <viewController id="ad0-OH-jHI" sceneMemberID="viewController">
+                <viewController id="ad0-OH-jHI" customClass="MoreDetailController" customModule="AlbumCarousel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fFm-x7-JHI"/>
                         <viewControllerLayoutGuide type="bottom" id="KF9-AY-eyZ"/>
@@ -112,19 +112,19 @@
                                     <constraint firstAttribute="width" constant="150" id="lma-oi-u4w"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwZ-ng-3ul">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwZ-ng-3ul">
                                 <rect key="frame" x="16" y="254" width="343" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiU-8Q-FFK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiU-8Q-FFK">
                                 <rect key="frame" x="16" y="297.5" width="343" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKd-eg-ew0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKd-eg-ew0">
                                 <rect key="frame" x="0.0" y="341" width="375" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -146,6 +146,12 @@
                             <constraint firstItem="exg-F4-bZh" firstAttribute="top" secondItem="fFm-x7-JHI" secondAttribute="bottom" constant="20" id="vkK-gW-aEU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="albumLabel" destination="bwZ-ng-3ul" id="E9D-eK-a16"/>
+                        <outlet property="artistLabel" destination="FiU-8Q-FFK" id="xTU-Lr-9bI"/>
+                        <outlet property="coverView" destination="exg-F4-bZh" id="bZT-vQ-QwD"/>
+                        <outlet property="genreLabel" destination="QKd-eg-ew0" id="n9l-ql-3ci"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Psg-Fo-J4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

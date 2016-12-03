@@ -27,29 +27,43 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collectionView.delegate = self
         searchBar.delegate = self
         
-        makeRequest("David Bowie")
+        query("David Bowie")
     }
 
     
-    func makeRequest(_ searchTerms: String) {
+    func query(_ queryString: String) {
         self.albums.removeAll()
-        artistLabel.text = "Artist: " + searchTerms
-        let urlString = "https://itunes.apple.com/search?entity=album&attribute=allArtistTerm&term=" + searchTerms.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+        artistLabel.text = "Artist: " + queryString
+        getAlbumsFromCoreData(queryString)
+        if (self.albums.count != 0) {
+            self.collectionView.reloadData()
+        } else {
+            makeRequest(queryString)
+        }
+    }
+    
+    func makeRequest(_ queryString: String) {
+        let urlString = "https://itunes.apple.com/search?entity=album&attribute=allArtistTerm&term=" + queryString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         
         Alamofire.request(urlString).responseJSON { response in
             if let JSON = response.result.value {
                 do {
                     
-                    let stringData = JSON as! NSDictionary
-                    let results = stringData.object(forKey: "results")! as! NSArray
+                    let data = JSON as! NSDictionary
+                    let results = data.object(forKey: "results")! as! NSArray
                     for object in results {
                         let dictionary = object as! NSDictionary
                         
-                        let album = Album()
-                        album.pictureUrl = dictionary.object(forKey: "artworkUrl100") as! String
-                        album.artistName = dictionary.object(forKey: "artistName") as! String
-                        album.collectionName = dictionary.object(forKey: "collectionName") as! String
-                        album.primaryGenreName = dictionary.object(forKey: "primaryGenreName") as! String
+                        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                        let album = Album(context: context)
+                        
+                        album.pictureUrl = dictionary.object(forKey: "artworkUrl100") as? String
+                        album.artistName = dictionary.object(forKey: "artistName") as? String
+                        album.collectionName = dictionary.object(forKey: "collectionName") as? String
+                        album.primaryGenreName = dictionary.object(forKey: "primaryGenreName") as? String
+                        album.searchQuery = queryString
+                        
+                        (UIApplication.shared.delegate as! AppDelegate).saveContext()
                         
                         self.albums.append(album)
                     }
@@ -76,8 +90,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         let imageView = cell.viewWithTag(1) as! UIImageView
-        let stringUrl = albums[indexPath.item]
-        let url = URL(string: stringUrl.pictureUrl)
+        let album = albums[indexPath.item]
+        let url = URL(string: album.pictureUrl!)
         
         imageView.kf.setImage(with: url)
         return cell
@@ -89,7 +103,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     //UISearchBarDelegate methods - start
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        makeRequest(searchBar.text!)
+        query(searchBar.text!)
         searchBar.endEditing(true)
     }
     
@@ -105,5 +119,26 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     //UICollectionViewDelegate methods - end
+    
+    func getAlbumsFromCoreData(_ queryString: String) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        do {
+            let allAlbums = try context.fetch(Album.fetchRequest()) as! [Album]
+            for album in allAlbums {
+                if (album.searchQuery! == queryString) {
+                    albums.append(album)
+                }
+            }
+        } catch {
+            print("Error: Album fetch failed")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextViewController = segue.destination as! MoreDetailController
+        nextViewController.album = sender as! Album
+    }
+    
 }
 
