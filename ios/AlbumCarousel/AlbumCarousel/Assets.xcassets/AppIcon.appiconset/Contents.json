@@ -36,15 +36,14 @@
       "scale" : "3x"
     },
     {
-      "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "iphone.png",
+      "size" : "57x57",
       "scale" : "1x"
     },
     {
       "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "photos copy.png",
+      "filename" : "goober.png",
       "scale" : "2x"
     },
     {

@@ -34,7 +34,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func query(_ queryString: String) {
         self.albums.removeAll()
-        artistLabel.text = "Artist: " + queryString
+        artistLabel.text = queryString
         getAlbumsFromCoreData(queryString)
         if (self.albums.count != 0) {
             self.collectionView.reloadData()
