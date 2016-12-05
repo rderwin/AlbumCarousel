@@ -62,7 +62,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                         
                         let collectionId = dictionary.object(forKey: "collectionId") as! Int64
                         
-                        let duplicateCheckFetch =  NSFetchRequest<Album>(entityName: "Album")
+                        let duplicateCheckFetch = NSFetchRequest<Album>(entityName: "Album")
                         duplicateCheckFetch.predicate = NSPredicate(format: "collectionId == %d", collectionId)
                         
                         var album: Album? = nil
